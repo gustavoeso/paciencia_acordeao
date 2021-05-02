@@ -21,33 +21,6 @@ def extrai_valor(valor):
         return valor[0]
 
 
-def extrai_valor(valor):
-    if valor == '10♣' or valor == '10♥' or valor == '10♦' or valor == '10♠':
-        return valor[0:2]
-    else:
-        return valor[0]
-
-def extrai_naipe(carta):
-    return carta[-1]
-
-def extrai_valor(valor):
-    if valor == '10♣' or valor == '10♥' or valor == '10♦' or valor == '10♠':
-        return valor[0:2]
-    else:
-        return valor[0]
-
-def extrai_naipe(carta):
-    return carta[-1]
-
-def extrai_valor(valor):
-    if valor == '10♣' or valor == '10♥' or valor == '10♦' or valor == '10♠':
-        return valor[0:2]
-    else:
-        return valor[0]
-
-def extrai_naipe(carta):
-    return carta[-1]
-
 def lista_movimentos_possiveis(baralho, indice):
     lista = []
     
