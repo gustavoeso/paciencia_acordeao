@@ -53,3 +53,8 @@ def lista_movimentos_possiveis(baralho, indice):
             return lista
         else:
             return lista
+
+def empilha(baralho, origem, destino):
+    carta = baralho.pop(origem)
+    baralho[destino] = carta
+    return baralho
