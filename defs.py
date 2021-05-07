@@ -58,3 +58,12 @@ def empilha(baralho, origem, destino):
     carta = baralho.pop(origem)
     baralho[destino] = carta
     return baralho
+
+def possui_movimentos_possiveis(baralho):
+    i = 0
+    while i < len(baralho):
+        movimentos = lista_movimentos_possiveis(baralho, i)
+        if len(movimentos) > 0:
+            return True
+        i += 1
+    return False
