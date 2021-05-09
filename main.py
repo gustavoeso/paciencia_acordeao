@@ -34,10 +34,10 @@ while jogando:
             elif len(movimentos) == 2:
                 print(f'1. {defs.colore_carta(baralho[numero-1])}')
                 print(f'2. {defs.colore_carta(baralho[numero-3])}')
-                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {numero - movimentos[0] + 1} (que é a carta no índice 1) ou {numero - movimentos[1] + 1}, (que é a carta no ídice 2) escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
-                if indice == numero - movimentos[0] + 1:
+                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {1} ou {2}, escolha qual: ', 2, 1)
+                if indice == 2:
                     baralho = defs.empilha(baralho, indice, numero - movimentos[0])
-                elif indice == numero - movimentos[1] + 1:
+                elif indice == 1:
                     baralho = defs.empilha(baralho, indice, numero - movimentos[1])
                 else:
                     print('Numero invalido')
