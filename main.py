@@ -32,7 +32,7 @@ while jogando:
             elif len(movimentos) == 2:
                 print(f'1. {baralho[numero-1]}')
                 print(f'2. {baralho[numero-3]}')
-                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {numero - movimentos[0] + 1} ou {numero - movimentos[1] + 1}, escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
+                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {numero - movimentos[0] + 1} (que é a carta no índice 1) ou {numero - movimentos[1] + 1}, (que é a carta no ídice 2) escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
                 if indice == numero - movimentos[0] + 1:
                     baralho = defs.empilha(baralho, indice, numero - movimentos[0])
                 elif indice == numero - movimentos[1] + 1:
