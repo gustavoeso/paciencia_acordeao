@@ -1,5 +1,6 @@
 import math
 import random
+from colorama import Fore
 
 def cria_baralho():
     baralho = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
@@ -92,3 +93,14 @@ def pergunta_numero(pergunta, maximo, minimo):
             return numero
         else:
             print('Este número não pode ser utilizado.')
+
+def colore_carta(carta):
+    naipe = extrai_naipe(carta)
+    if naipe == '♣':
+        return Fore.RED + carta + Fore.RESET
+    elif naipe == '♥':
+        return Fore.BLUE + carta + Fore.RESET
+    elif naipe == '♦':
+        return Fore.YELLOW + carta + Fore.RESET
+    elif naipe == '♠':
+        return Fore.GREEN + carta + Fore.RESET

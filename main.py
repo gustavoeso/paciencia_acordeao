@@ -1,6 +1,9 @@
 import math
 import random
 import defs
+import colorama
+
+colorama.init()
 
 print('Paciência Acordeão')
 print('==================')
@@ -22,16 +25,15 @@ while jogando:
         baralho = defs.random_baralho()        
         while defs.possui_movimentos_possiveis(baralho):
             for indice, carta in enumerate(baralho):
-                print(f'{indice+1}. {carta}')
+                print(f'{indice+1}. {defs.colore_carta(carta)}')
             
             numero = defs.pergunta_numero(f'Digite uma carta que deseja empilhar entre 1 e {len(baralho)}: ', len(baralho), 1) - 1
             movimentos = defs.lista_movimentos_possiveis(baralho, numero)
             if len(movimentos) == 1:
-                print('teste')
                 baralho = defs.empilha(baralho, numero, numero - movimentos[0])
             elif len(movimentos) == 2:
-                print(f'1. {baralho[numero-1]}')
-                print(f'2. {baralho[numero-3]}')
+                print(f'1. {defs.colore_carta(baralho[numero-1])}')
+                print(f'2. {defs.colore_carta(baralho[numero-3])}')
                 indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {numero - movimentos[0] + 1} (que é a carta no índice 1) ou {numero - movimentos[1] + 1}, (que é a carta no ídice 2) escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
                 if indice == numero - movimentos[0] + 1:
                     baralho = defs.empilha(baralho, indice, numero - movimentos[0])
