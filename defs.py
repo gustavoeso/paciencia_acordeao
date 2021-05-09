@@ -11,8 +11,20 @@ def cria_baralho():
             baralho_cheio.append(carta)
     return baralho_cheio
 
+def random_baralho():
+    baralho = cria_baralho()
+    baralho_aleatorio = []
+    while len(baralho_aleatorio) < len(baralho):
+        numero_lista = random.randint(0, len(baralho) - 1)
+        carta_aleatoria = baralho[numero_lista]
+        if carta_aleatoria not in baralho_aleatorio:
+            baralho_aleatorio.append(carta_aleatoria)
+    return baralho_aleatorio
+
+
 def extrai_naipe(carta):
     return carta[-1]
+
 
 def extrai_valor(valor):
     if valor == '10♣' or valor == '10♥' or valor == '10♦' or valor == '10♠':
@@ -30,8 +42,10 @@ def lista_movimentos_possiveis(baralho, indice):
     naipe = extrai_naipe(baralho[indice])
     naipe_anterior = extrai_naipe(baralho[indice-1])
 
+
     if indice == 0:
         return lista
+
 
     if indice <= 2:
         if valor == valor_anterior or naipe == naipe_anterior:
@@ -54,10 +68,12 @@ def lista_movimentos_possiveis(baralho, indice):
         else:
             return lista
 
+
 def empilha(baralho, origem, destino):
     carta = baralho.pop(origem)
     baralho[destino] = carta
     return baralho
+
 
 def possui_movimentos_possiveis(baralho):
     i = 0
@@ -67,3 +83,12 @@ def possui_movimentos_possiveis(baralho):
             return True
         i += 1
     return False
+
+
+def pergunta_numero(pergunta, maximo, minimo):
+    while True:
+        numero = int(input(pergunta))
+        if numero <= maximo and numero >= minimo:
+            return numero
+        else:
+            print('Este número não pode ser utilizado.')
