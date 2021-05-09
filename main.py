@@ -23,16 +23,16 @@ while jogando:
         while defs.possui_movimentos_possiveis(baralho):
             for indice, carta in enumerate(baralho):
                 print(f'{indice+1}. {carta}')
-
+            
             numero = defs.pergunta_numero(f'Digite uma carta que deseja empilhar entre 1 e {len(baralho)}: ', len(baralho), 1) - 1
             movimentos = defs.lista_movimentos_possiveis(baralho, numero)
             if len(movimentos) == 1:
                 print('teste')
                 baralho = defs.empilha(baralho, numero, numero - movimentos[0])
             elif len(movimentos) == 2:
-                for indice, carta in enumerate(movimentos):
-                    print(f'{indice+1}. {carta}')
-                indice = defs.pergunta_numero(f'é possível tirar essas cartas: {numero - movimentos[0] + 1} ou {numero - movimentos[1] + 1}, escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
+                print(f'1. {baralho[numero-1]}')
+                print(f'2. {baralho[numero-3]}')
+                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {numero - movimentos[0] + 1} ou {numero - movimentos[1] + 1}, escolha qual: ', numero - movimentos[0] + 1, numero - movimentos[1] + 1)
                 if indice == numero - movimentos[0] + 1:
                     baralho = defs.empilha(baralho, indice, numero - movimentos[0])
                 elif indice == numero - movimentos[1] + 1:
@@ -40,6 +40,7 @@ while jogando:
                 else:
                     print('Numero invalido')
             else:
-                break
-
+                print('esta carta não tem movimentos')
+    else:
+        break
     jogando = False
