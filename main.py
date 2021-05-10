@@ -34,8 +34,8 @@ while jogando:
             elif len(movimentos) == 2:
                 for indice, step in enumerate(movimentos):
                     print(f'{indice+1}. {defs.colore_carta(baralho[numero-step])}')
-                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {1} ou {2}, escolha qual: ', 2, 1) - 1
-                baralho = defs.empilha(baralho, numero, numero - movimentos[indice])
+                numero_empilha = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {1} ou {2}, escolha qual: ', 2, 1) - 1
+                baralho = defs.empilha(baralho, numero, numero - movimentos[numero_empilha])
             else:
                 print('esta carta não tem movimentos')
         if len(baralho) == 1:
