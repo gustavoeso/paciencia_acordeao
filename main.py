@@ -19,8 +19,8 @@ print('1. Ambas as cartas devem ser do mesmo valor')
 print('2. Ambas as cartas devem ser do mesmo naipe')
 
 jogando = True
-comeca = input('Digite "jogar" para começar o jogo, se quiser parar digite "sair": ')
 while jogando:
+    comeca = input('Digite "jogar" para começar o jogo, se quiser parar digite "sair": ')
     if comeca == 'jogar':
         baralho = defs.random_baralho()        
         while defs.possui_movimentos_possiveis(baralho):
@@ -32,17 +32,15 @@ while jogando:
             if len(movimentos) == 1:
                 baralho = defs.empilha(baralho, numero, numero - movimentos[0])
             elif len(movimentos) == 2:
-                print(f'1. {defs.colore_carta(baralho[numero-1])}')
-                print(f'2. {defs.colore_carta(baralho[numero-3])}')
-                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {1} ou {2}, escolha qual: ', 2, 1)
-                if indice == 2:
-                    baralho = defs.empilha(baralho, indice, numero - movimentos[0])
-                elif indice == 1:
-                    baralho = defs.empilha(baralho, indice, numero - movimentos[1])
-                else:
-                    print('Numero invalido')
+                for indice, step in enumerate(movimentos):
+                    print(f'{indice+1}. {defs.colore_carta(baralho[numero-step])}')
+                indice = defs.pergunta_numero(f'é possível tirar as cartas nas posições: {1} ou {2}, escolha qual: ', 2, 1) - 1
+                baralho = defs.empilha(baralho, numero, numero - movimentos[indice])
             else:
                 print('esta carta não tem movimentos')
+        if len(baralho) == 1:
+            print('Você ganhou!')
+        else:
+            print('Perdeu... :(')
     else:
-        break
-    jogando = False
+        jogando = False
