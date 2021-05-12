@@ -7,7 +7,7 @@ def cria_baralho():
     naipes = ['♠', '♣', '♥', '♦']
     baralho_cheio = []
     for naipe in range(4):
-        for numero in range(4):
+        for numero in range(13):
             carta = (baralho[numero] + naipes[naipe])
             baralho_cheio.append(carta)
     return baralho_cheio
